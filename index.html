@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>🏇 クイズダービー</title>
+<meta name="description" content="班対抗でコインを賭けて競うクイズゲーム">
+<meta name="theme-color" content="#f5c518">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&family=Kaisei+Decol:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -1801,6 +1805,21 @@ function createConfetti() {
 
 function restartAll() {
   location.reload();
+}
+
+// ════════════════════════════
+//  PWA - Service Worker
+// ════════════════════════════
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(registration => {
+        console.log('PWA: Service Worker registered');
+      })
+      .catch(err => {
+        console.log('PWA: Service Worker registration failed', err);
+      });
+  });
 }
 </script>
 
