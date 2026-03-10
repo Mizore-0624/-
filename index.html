@@ -1049,6 +1049,11 @@ let spaceDown = false;
 // ════════════════════════════
 //  HELP & STORAGE
 // ════════════════════════════
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
 function showHelp() {
   showScreen('scr-howto');
 }
